@@ -1,28 +1,23 @@
-CREATE DATABASE details_db;
+CREATE DATABASE ORG;
 
-USE details_db;
+USE ORG;
 
-CREATE TABLE Department(
-dept_no INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE  Department( dept_no INT PRIMARY KEY, 
 dept_name VARCHAR(50) NOT NULL,
-location VARCHAR(255));
+ location VARCHAR(50) NOT NULL);
 
-Create TABLE Employee(
-emp_id INT PRIMARY KEY  AUTO_INCREMENT,
-emp_name VARCHAR(30) NOT NULL,
-date_of_join DATE NOT NULL,
-mobile BIGINT NOT NULL,
-CONSTRAINT employee FOREIGN KEY (dept_no) REFERENCES department (dept_no),
-salary INT NOT NULL
-);
-
-
-
-ALTER TABLE Employee ADD COLUMN designation VARCHAR(50) NOT NULL;
-
-INSERT INTO  Department VALUES ();
-INSERT INTO Employee VALUES ();
-
-SELECT * FROM Department;
-SELECT * FROM Employee;
-
+CREATE TABLE Employee( emp_no INT PRIMARY KEY,
+ emp_name VARCHAR(50) NOT NULL, dob VARCHAR(10) NOT NULL,
+ address VARCHAR(255) NOT NULL, doj VARCHAR(10) NOT NULL, 
+ FOREIGN KEY (dept_no) REFERENCES Department(dept_no),
+ salary BIGINT NOT NULL);
+ 
+ 
+ INSERT INTO Department VALUES(1,"HR","Kollam"),(2,"Sales","Kollam"),(3,"IT","Ernakulam");
+ 
+ INSERT INTO Employee VALUES(110,"Ayash M","20/02/2000","Kunnikode , Punalur","22/03/2023",1,1000000),
+ (111,"Nidal Basheer","15/10/2000","Vadakara, Kozhikode","25/03/2023",3,1200000),
+ (112,"Devika Krishnan","10/01/2000","Ayathil , Kollam","28/03/2023",2,2000000);
+ 
+ 
+ 
