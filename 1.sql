@@ -20,4 +20,6 @@ CREATE TABLE Employee( emp_no INT PRIMARY KEY,
  (112,"Devika Krishnan","10/01/2000","Ayathil , Kollam","28/03/2023",2,2000000);
  
  
+ SELECT * FROM Department;
  
+ SELECT * FROM Employee;
