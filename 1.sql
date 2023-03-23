@@ -32,6 +32,7 @@ CREATE TABLE Employee( emp_no INT PRIMARY KEY,
  SELECT * FROM Department;
 
 ALTER TABLE Employee ADD COLUMN Designation  VARCHAR(255) NOT NULL;
+ALTER TABLE Department DROP COLUMN loaction;
 
 DROP TABLE Department, Employee;
 
