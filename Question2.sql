@@ -27,4 +27,4 @@ SELECT dept_name, SUM(salary) FROM Employee e INNER JOIN department d ON e.dept_
 
 DELETE * FROM Employee WHERE salary = 1200000;
 
-SELECT dept_name FROM Employee e INNER JOIN department d ON e.dept_no = d.dept_no GROUP BY e.dept_no HAVING SUM(salary) > 25000;
+SELECT dept_name FROM Employee e INNER JOIN department d ON e.dept_no = d.dept_no GROUP BY e.dept_no HAVING SUM(salary) > 1000000;
