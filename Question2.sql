@@ -1,5 +1,5 @@
 
- INSERT INTO Department VALUES(1,"HR"),(2,"Sales"),(3,"IT"),(3,"Marketing"),(4,"Operations"),(5,"Operations");
+ INSERT INTO Department VALUES(1,"HR"),(2,"Sales"),(3,"IT"),(4,"Marketing"),(5,"Operations");
 
  INSERT INTO Employee VALUES(110,"Ayash M","20/02/2000","Kunnikode , Punalur",1234567890,"22/03/2023",1,1000000,"HR Manager"),
  (111,"Nidal Basheer","15/10/2000","Vadakara, Kozhikode",1234512345,"25/03/2023",3,1200000,"IT Admin"),
