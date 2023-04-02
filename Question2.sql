@@ -4,8 +4,8 @@
  INSERT INTO Employee VALUES(110,"Ayash M","20/02/2000","Kunnikode , Punalur","22/03/2023",1,1000000,"HR Manager"),
  (111,"Nidal Basheer","15/10/2000","Vadakara, Kozhikode","25/03/2023",3,1200000,"IT Admin"),
  (112,"Devika Krishnan","10/01/2000","Ayathil , Kollam","28/03/2023",2,2000000,"Sales Representative"),
- (112,"Deva P Lal","25/06/2000","Pathanapuram , Kollam","03/04/2023",4,2000000,"Marketing Manager"),
- (112,"Athira Mohan","10/03/2002","Kottiyam , Kollam","20/01/2023",4,2000000,"Operations Assistant");
+ (113,"Deva P Lal","25/06/2000","Pathanapuram , Kollam","03/04/2023",4,2000000,"Marketing Manager"),
+ (114,"Athira Mohan","10/03/2002","Kottiyam , Kollam","20/01/2023",4,2000000,"Operations Assistant");
  
  
  
