@@ -1,14 +1,14 @@
 
  INSERT INTO Department VALUES(1,"HR"),(2,"Sales"),(3,"IT"),(4,"Marketing"),(5,"Operations");
 
- INSERT INTO Employee VALUES(110,"Ayash M","20/02/2000","Kunnikode , Punalur",1234567890,"22/03/2023",1,1000000,"HR Manager"),
- (111,"Nidal Basheer","15/10/2000","Vadakara, Kozhikode",1234512345,"25/03/2023",3,1200000,"IT Admin"),
- (112,"Devika Krishnan","10/01/2000","Ayathil , Kollam",0099887766,"28/03/2023",2,2000000,"Sales Representative"),
- (113,"Deva P Lal","25/06/2000","Pathanapuram , Kollam",1122334455,"03/04/2023",4,2000000,"Marketing Manager"),
- (114,"Athira Mohan","10/03/2002","Kottiyam , Kollam",0987654321,"20/01/2023",4,2000000,"Operations Assistant");
+ INSERT INTO Employee VALUES(110,"Ayash M","2000-02-20","Kunnikode , Punalur",1234567890,"2023-03-22",1,1000000,"HR Manager"),
+ (111,"Nidal Basheer","2000-10-15","Vadakara, Kozhikode",1234512345,"2023-03-25",3,1200000,"IT Admin"),
+ (112,"Devika Krishnan","2000-01-10","Ayathil , Kollam",0099887766,"2023-0-28",2,2000000,"Sales Representative"),
+ (113,"Deva P Lal","2000-01-26","Pathanapuram , Kollam",1122334455,"2023-04-03",4,2000000,"Marketing Manager"),
+ (114,"Athira Mohan","2002-03-10","Kottiyam , Kollam",0987654321,"2023-01-20",4,2000000,"Operations Assistant");
  
  
- SELCT * FROM Employee , Department;
+ SELCET * FROM Employee , Department;
 --SELECT * FROM Employee as e INNER JOIN department as d ON e.dept_no = d.dept_no;
 
 SELECT emp_no, emp_name FROM Employee WHERE dept_no = 2;
