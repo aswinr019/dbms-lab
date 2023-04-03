@@ -8,7 +8,9 @@
  (114,"Athira Mohan","2002-03-10","Kottiyam , Kollam",0987654321,"2023-01-20",4,2000000,"Operations Assistant");
  
  
- SELCET * FROM Employee , Department;
+ SELECT * FROM Employee ;
+ SELECT * FROM Department;
+ 
 --SELECT * FROM Employee as e INNER JOIN department as d ON e.dept_no = d.dept_no;
 
 SELECT emp_no, emp_name FROM Employee WHERE dept_no = 2;
