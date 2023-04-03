@@ -8,23 +8,23 @@
  (114,"Athira Mohan","10/03/2002","Kottiyam , Kollam",0987654321,"20/01/2023",4,2000000,"Operations Assistant");
  
  
- 
-SELECT * FROM Employee as e INNER JOIN department as d ON e.dept_no = d.dept_no;
+ SELCT * FROM Employee , Department;
+--SELECT * FROM Employee as e INNER JOIN department as d ON e.dept_no = d.dept_no;
 
 SELECT emp_no, emp_name FROM Employee WHERE dept_no = 2;
 
 SELECT emp_no, emp_name, designation, dept_no, salary FROM Employee ORDER BY salary DESC;
 
-SELECT emp_no, emp_name FROM Employee WHERE salary BETWEEN 1000000 AND 1300000;
+SELECT emp_no, emp_name FROM Employee WHERE salary BETWEEN 2000 AND 5000;
 
 SELECT DISTINCT designation FROM Employee;
 
 SELECT dept_name, SUM(salary) FROM Employee e INNER JOIN department d ON e.dept_no = d.dept_no GROUP BY e.dept_no;
 
-UPDATE Employee SET salary = 1800000 WHERE designation = 'Marketing Manager';
+UPDATE Employee SET salary = 25000 WHERE designation = 'Typist';
 
-UPDATE Employee SET mobile_no = '1234567890' WHERE emp_name = 'Athira Mohan';
+UPDATE Employee SET mobile_no = 1234567890 WHERE emp_name = 'Athira Mohan';
 
-DELETE * FROM Employee WHERE salary = 1200000;
+DELETE * FROM Employee WHERE salary = 7000;
 
-SELECT dept_name FROM Employee e INNER JOIN Department d ON e.dept_no = d.dept_no GROUP BY e.dept_no HAVING SUM(salary) > 1000000;
+SELECT dept_name FROM Employee e INNER JOIN Department d ON e.dept_no = d.dept_no GROUP BY e.dept_no HAVING SUM(salary) > 25000;
