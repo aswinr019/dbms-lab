@@ -72,7 +72,7 @@ JOIN Book_Loan ON Borrower.CARDNO = Book_Loan.cardno WHERE Book_Loan.status = 'T
 GROUP BY Borrower.cardno, Borrower.name HAVING COUNT(*) > 5;
 
 
-CREATE INDEX idx_bookloan_bookid ON BOOKLOAN (BOOKID);
+CREATE INDEX idx_bookloan_bookid ON Book_Loan (bookid);
 
 
 CREATE VIEW Borrower_Books_Out AS SELECT B.cardno, B.name, COUNT(*) AS NUM_BOOKS_OUT FROM Borrower B
