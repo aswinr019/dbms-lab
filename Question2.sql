@@ -29,8 +29,8 @@ SELECT dept_name, SUM(salary) FROM Employee e INNER JOIN department d ON e.dept_
 
 UPDATE Employee SET salary = 25000 WHERE designation = 'Typist';
 
-UPDATE Employee SET mobile_no = 1234567890 WHERE emp_name = 'john';
+UPDATE Employee SET mobile_no = 1234567890 WHERE emp_name = 'John';
 
-DELETE * FROM Employee WHERE salary = 7000;
+DELETE  FROM Employee WHERE salary = 7000;
 
 SELECT dept_name FROM Employee e INNER JOIN Department d ON e.dept_no = d.dept_no GROUP BY e.dept_no HAVING SUM(salary) > 25000;
