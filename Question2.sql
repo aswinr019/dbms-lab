@@ -9,7 +9,7 @@
   INSERT INTO Employee VALUES
     (110,'Ted J. Cloud', '1996-02-04', '4084 Lincoln Drive, Millerstown, PA 17062', '9829594246', '2022-04-23', '1', '50000', 'HR Recruiter'),
     (111,'Larry S. Ackerman', '1997-04-20', '1885 Frederick Street, Midland, TX 79701', '4117136606', '2020-03-16', '3', '60000', 'IT Admin'),
-    (112,'John M. Patterson', '1995-09-12', '996 Simpson Square, Tonkawa, OK 74653', '8113899890', '2021-04-19', '2', '70000', 'Sales Head'),
+    (112,'John', '1995-09-12', '996 Simpson Square, Tonkawa, OK 74653', '8113899890', '2021-04-19', '2', '70000', 'Sales Head'),
     (113,'Marlon L. Brennan', '1997-10-08', '4039 Griffin Street, Phoenix, AZ 85040', '6934074979', '2022-06-05', '4', '100000', 'Marketing Manager'),
     (114,'Thomas C. Boston', '2000-11-03', '581 Michigan Avenue, New Castle, PA 16101', '6032868245', '2023-01-09', '5', '90000', 'Typist')
  
