@@ -20,13 +20,13 @@ CREATE TABLE Book_Author (
   bookid INT NOT NULL,
   authorid INT NOT NULL,
   PRIMARY KEY (bookid, authorid),
-  FOREIGN KEY (bookid) REFERENCES Book(BOOKID),
+  FOREIGN KEY (bookid) REFERENCES Book(bookid),
   FOREIGN KEY (authorid) REFERENCES Author(authorid)
 );
 
 CREATE TABLE Borrower (
   cardno INT PRIMARY KEY,
-  NAME VARCHAR(50) NOT NULL
+  name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Book_Loan (
@@ -43,7 +43,10 @@ CREATE TABLE Book_Loan (
 INSERT INTO Publisher VALUES
   (1, 'Penguin Books'),
   (2, 'Oxford University Press'),
-  (3, 'Random House');
+  (3, 'Random House'),
+  (4, 'HarperCollins'),
+  (5, 'Simon & Schuster'),
+  (6, 'Hachette Book Group');
 
 INSERT INTO Author VALUES
   (1, 'Jane Austen'),
@@ -51,20 +54,60 @@ INSERT INTO Author VALUES
   (3, 'Agatha Christie'),
   (4, 'William Shakespeare'),
   (5, 'J.K. Rowling'),
-  (6, 'Stephen King');
+  (6, 'Stephen King'),
+  (7, 'George R.R. Martin'),
+  (8, 'Stephenie Meyer'),
+  (9, 'Dan Brown'),
+  (10, 'Michael Crichton'),
+  (11, 'John Grisham'),
+  (12, 'Agnes Martin-Lugand');
 
 INSERT INTO Book VALUES
   (1, 'Pride and Prejudice', 1, 5),
   (2, 'The Old Man and the Sea', 2, 3),
   (3, 'Murder on the Orient Express', 3, 4),
   (4, 'Hamlet', 2, 2),
-  (5, 'Harry Potter and the Philosopher''s Stone', 1, 10);
+  (5, 'Harry Potter and the Philosopher''s Stone', 1, 10),
+  (6, 'A Game of Thrones', 4, 8),
+  (7, 'Twilight', 5, 6),
+  (8, 'The Da Vinci Code', 6, 10),
+  (9, 'Jurassic Park', 4, 4),
+  (10, 'The Firm', 2, 3),
+  (11, 'Happy People Read and Drink Coffee', 1, 2);
   
   
-  
-  
- SELECT * FROM Borrower WHERE Cardno NOT IN (
- SELECT DISTINCT Cardno FROM Book_Loan WHERE STATUS = 'T');
+INSERT INTO Book_Author VALUES
+(6, 7),
+(7, 8),
+(8, 9),
+(9, 10),
+(10, 11),
+(11, 12);
+
+INSERT INTO Borrower VALUES
+(1001, 'Alice Johnson'),
+(1002, 'Bob Smith'),
+(1003, 'Charlie Brown'),
+(1004, 'David Lee'),
+(1005, 'Emily Davis');
+
+INSERT INTO Book_Loan VALUES
+(1, 1001, '2022-01-01', '2022-01-15', 'T'),
+(2, 1001, '2022-01-05', '2022-01-20', 'T'),
+(3, 1002, '2022-02-10', '2022-02-25', 'T'),
+(4, 1002, '2022-03-03', '2022-03-18', 'T'),
+(5, 1003, '2022-04-20', '2022-05-05', 'R'),
+(6, 1003, '2022-05-05', '2022-05-20', 'T'),
+(7, 1004, '2022-06-01', '2022-06-16', 'T'),
+(8, 1005, '2022-06-18', '2022-07-03', 'T'),
+(9, 1005, '2022-07-02', '2022-07-17', 'T'),
+(10, 1005, '2022-08-01', '2022-08-16', 'T'),
+(11, 1004, '2022-09-15', '2022-09-30', 'T');
+
+   
+SELECT * FROM Borrower WHERE cardno NOT IN (
+SELECT DISTINCT cardno FROM Book_Loan WHERE status = 'T');
+
  
  
 SELECT Borrower.cardno, Borrower.name, COUNT(*) AS NUM_BOOKS_CHECKED_OUT FROM Borrower
@@ -76,14 +119,15 @@ CREATE INDEX idx_bookloan_bookid ON Book_Loan (bookid);
 
 
 CREATE VIEW Borrower_Books_Out AS SELECT B.cardno, B.name, COUNT(*) AS NUM_BOOKS_OUT FROM Borrower B
-JOIN Book_Loan BL ON B.cardno = BL.cardno WHERE BL.status = 'T' GROUP BY B.cardno, B.name;
+JOIN Book_Loan BL ON B.cardno = BL.cardno WHERE BL.status = 'T'
+ GROUP BY B.cardno, B.name;
 
 CREATE PROCEDURE Author_Details(@BookID INT)
 AS
 BEGIN
   SELECT A.authorid, A.authorname, BL.status
   FROM Author A
-  JOIN Book_Author BA ON A.auhtorid = BA.auhtorid
+  JOIN Book_Author BA ON A.authorid = BA.authorid
   JOIN Book_Loan BL ON BL.bookid = BA.bookid
   WHERE BA.bookid = @BookID;
 END
