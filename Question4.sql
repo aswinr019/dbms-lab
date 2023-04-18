@@ -103,7 +103,6 @@ INSERT INTO Book_Loan VALUES
 (9, 1005, '2022-07-02', '2022-07-17', 'T'),
 (10, 1005, '2022-08-01', '2022-08-16', 'T'),
 (11, 1004, '2022-09-15', '2022-09-30', 'T'),
-(11, 1004, '2022-09-15', '2022-09-30', 'T'),
 (7, 1004, '2022-09-15', '2022-09-30', 'T'),
 (6, 1004, '2022-09-15', '2022-09-30', 'T'),
 (5, 1004, '2022-09-15', '2022-09-30', 'T'),
@@ -129,13 +128,18 @@ CREATE VIEW Borrower_Books_Out AS SELECT B.cardno, B.name, COUNT(*) AS NUM_BOOKS
 JOIN Book_Loan BL ON B.cardno = BL.cardno WHERE BL.status = 'T'
  GROUP BY B.cardno, B.name;
 
-CREATE PROCEDURE Author_Details(@BookID INT)
-AS
+DELIMITER //
+CREATE PROCEDURE Author_Details(IN bookid INT)
 BEGIN
-  SELECT A.authorid, A.authorname, BL.status
-  FROM Author A
-  JOIN Book_Author BA ON A.authorid = BA.authorid
-  JOIN Book_Loan BL ON BL.bookid = BA.bookid
-  WHERE BA.bookid = @BookID;
-END
+   SELECT authors.authorid, authors.author_name, books.status 
+   FROM authors 
+   INNER JOIN books ON authors.authorid = books.authorid 
+   WHERE books.bookid = bookid;
+END //
+DELIMITER ;
+
+
+
+
+CALL Author_Details(1);
 
